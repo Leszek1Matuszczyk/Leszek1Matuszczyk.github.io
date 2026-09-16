@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b1020" />
+  <meta name="description" content="LOGIKON — logic puzzles by ElEm Software." />
+  <title>LOGIKON — logic puzzles</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icons/logo-mark.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="intro" class="intro phase-pub" role="dialog" aria-label="LOGIKON">
+    <div class="intro-sky" aria-hidden="true"></div>
+    <div class="intro-pub" id="intro-pub">
+      <p class="intro-pub-kicker">Published by</p>
+      <img class="intro-pub-mark" src="icons/elem-mark.svg" alt="" />
+      <p class="intro-pub-word"><span>ElEm</span> Software</p>
+    </div>
+    <div class="intro-stage" id="intro-game">
+      <div class="gem gem-intro" id="intro-gem">
+        <svg viewBox="0 0 200 230" aria-hidden="true">
+          <path fill="#e8b86d" d="M100 10 L186 96 L168 96 L100 28 L32 96 L14 96 Z"/>
+          <path fill="#c48a36" d="M186 96 L100 182 L100 164 L168 96 Z"/>
+          <path fill="#8a6428" d="M14 96 L100 182 L100 164 L32 96 Z"/>
+          <path fill="#0b1020" d="M100 52 L148 100 L100 148 L52 100 Z"/>
+          <path fill="#5ec4b8" d="M58 128 L96 150 L78 198 L28 162 Z"/>
+        </svg>
+      </div>
+      <h1 class="intro-title">LOGIKON</h1>
+      <p class="intro-tag">LOGIC PUZZLES</p>
+      <div class="intro-koni">
+        <div class="mascot mascot-sm mood-wave" id="intro-mascot" aria-hidden="true"></div>
+        <p class="intro-koni-line">Let’s train that brain.</p>
+      </div>
+    </div>
+    <button class="intro-skip" type="button" id="intro-skip">Tap to skip</button>
+  </div>
+  <div id="fx" class="fx" aria-hidden="true"><div class="fx-flash"></div><p class="fx-caption" id="fx-caption"></p></div>
+  <div id="app">
+    <section class="screen active" id="screen-home">
+      <div class="brand"><div class="logo"><img src="icons/logo-mark.svg" alt="LOGIKON" /></div><h1>LOGIKON</h1></div>
+      <p class="tag">Logic puzzles · mind training</p>
+      <div class="mascot-home" id="home-mascot-wrap">
+        <div class="mascot mood-wave" id="home-mascot" aria-hidden="true"></div>
+        <div class="speech" id="home-speech"><b>Koni</b><span>Puzzles train the mind. Think slower — answer surer.</span></div>
+      </div>
+      <div class="hero-card">
+        <h2>Think slower.<br>Answer surer.</h2>
+        <p id="home-streak" class="tag" style="margin:0 0 16px">Warm up the gray cells.</p>
+        <div class="progress-row"><span>Campaign</span><span id="home-progress-label">0 / 320 puzzles</span></div>
+        <div class="bar"><span id="home-bar"></span></div>
+        <p class="diff-label">Time per puzzle</p>
+        <div class="diff-row" id="home-diff" role="radiogroup" aria-label="Difficulty">
+          <button type="button" class="diff-chip" data-diff="easy">Easy<small>90 seconds</small></button>
+          <button type="button" class="diff-chip" data-diff="standard">Standard<small>60 seconds</small></button>
+          <button type="button" class="diff-chip" data-diff="hard">Hard<small>30 seconds</small></button>
+        </div>
+      </div>
+      <div class="grid-actions">
+        <button class="btn btn-gold" id="btn-continue" style="display:none">Continue</button>
+        <button class="btn btn-gold" id="btn-play">Play</button>
+        <div class="row-actions">
+          <button class="btn btn-ghost" id="btn-daily">Daily puzzle</button>
+          <button class="btn btn-ghost" id="btn-stats">Stats</button>
+        </div>
+        <button class="btn btn-ghost" id="btn-settings">Settings</button>
+      </div>
+      <p class="legal">Published by ElEm Software · Version 1.0<br><a href="legal/privacy.html">Privacy policy</a></p>
+    </section>
+    <section class="screen" id="screen-worlds">
+      <div class="topbar"><button class="icon-btn" id="back-worlds" aria-label="Back">←</button><h1 style="letter-spacing:0.08em;font-size:18px">Worlds</h1><span style="width:42px"></span></div>
+      <div class="worlds" id="worlds"></div>
+    </section>
+    <section class="screen" id="screen-levels">
+      <div class="topbar"><button class="icon-btn" id="back-levels" aria-label="Back">←</button><h1 id="levels-title" style="letter-spacing:0.08em;font-size:18px">World</h1><span style="width:42px"></span></div>
+      <p class="tag" id="levels-blurb"></p>
+      <div class="levels" id="levels"></div>
+    </section>
+    <section class="screen" id="screen-puzzle">
+      <div class="topbar"><button class="icon-btn" id="back-puzzle" aria-label="Back">←</button><span class="tag" style="margin:0" id="pz-kicker"></span><button class="icon-btn" id="btn-hint" aria-label="Hint">?<span style="font-size:10px" id="hint-count"></span></button></div>
+      <div class="pz-timer" id="pz-timer-wrap"><div class="pz-timer-top"><span id="pz-diff-label">Standard</span><span id="pz-timer">60s</span></div><div class="pz-timer-track"><span id="pz-timer-bar"></span></div></div>
+      <div class="puzzle-card"><div class="puzzle-meta"><span id="pz-world"></span></div><h2 id="pz-title"></h2><div class="body" id="pz-body"></div><p class="hint" id="pz-hint"></p></div>
+      <div class="mascot-dock" id="pz-mascot-wrap"><div class="mascot mascot-sm mood-think" id="pz-mascot" aria-hidden="true"></div><div class="speech speech-sm" id="pz-speech"><b>Koni</b><span id="pz-speech-text">Read it twice.</span></div></div>
+      <div class="options" id="pz-options"></div>
+      <button class="btn btn-ghost ad-hint-btn" id="btn-watch-hint" type="button" hidden>Watch an ad for a hint</button>
+    </section>
+    <section class="screen" id="screen-result">
+      <div class="topbar"><button class="icon-btn" id="back-result" aria-label="Back">←</button><span></span><span style="width:42px"></span></div>
+      <div class="result"><div class="badge" id="rs-badge"></div><h2 id="rs-title">Nice work.</h2><div class="stars" id="rs-stars">★★★</div><div class="rs-score" id="rs-score"></div><p class="rs-meta" id="rs-meta"></p><p id="rs-explain"></p><div class="grid-actions"><button class="btn btn-gold" id="rs-next">Next puzzle</button><button class="btn btn-ghost" id="rs-again">Try again</button></div></div>
+    </section>
+    <section class="screen" id="screen-stats">
+      <div class="topbar"><button class="icon-btn" id="back-stats" aria-label="Back">←</button><h1 style="letter-spacing:0.08em;font-size:18px">Stats</h1><span style="width:42px"></span></div>
+      <div class="stats-grid"><div class="stat"><b id="st-solved">0</b><span>solved</span></div><div class="stat"><b id="st-stars">0</b><span>stars</span></div><div class="stat"><b id="st-score">0</b><span>best points</span></div><div class="stat"><b id="st-streak">0</b><span>day streak</span></div><div class="stat"><b id="st-world">1</b><span>world unlocked</span></div><div class="stat"><b id="st-pace">60s</b><span>current pace</span></div></div>
+    </section>
+    <section class="screen" id="screen-settings">
+      <div class="topbar"><button class="icon-btn" id="back-settings" aria-label="Back">←</button><h1 style="letter-spacing:0.08em;font-size:18px">Settings</h1><span style="width:42px"></span></div>
+      <div class="settings">
+        <label>Sound <span class="switch on" id="sw-sound"><i></i></span></label>
+        <label>Ads <span class="switch on" id="sw-ads"><i></i></span></label>
+        <p class="diff-label">Time per puzzle</p>
+        <div class="diff-row" id="set-diff" role="radiogroup">
+          <button type="button" class="diff-chip" data-diff="easy">Easy<small>90s</small></button>
+          <button type="button" class="diff-chip" data-diff="standard">Standard<small>60s</small></button>
+          <button type="button" class="diff-chip" data-diff="hard">Hard<small>30s</small></button>
+        </div>
+      </div>
+      <button class="btn btn-rose" id="btn-reset" style="margin-top:18px">Reset progress</button>
+      <p class="legal">LOGIKON 1.0 · published by ElEm Software<br><a href="legal/privacy.html">Privacy policy</a></p>
+    </section>
+    <div class="toast" id="toast"></div>
+  </div>
+  <aside id="ad-banner" class="ad-banner" hidden aria-label="Advertisement"></aside>
+  <div id="ad-consent" class="ad-layer" role="dialog"><div class="ad-sheet"><p class="ad-kicker">Ads</p><h2>Help keep LOGIKON free</h2><p>House ads keep the game free. You can turn them off in Settings.</p><button class="btn btn-gold" id="ad-consent-yes" type="button">Allow ads</button><button class="btn btn-ghost" id="ad-consent-no" type="button">No ads</button></div></div>
+  <div id="ad-inter" class="ad-layer" role="dialog"><div class="ad-sheet ad-sheet-wide"><div id="ad-inter-card" class="ad-card"></div><button class="btn btn-ghost" id="ad-inter-skip" type="button">Skip ad</button></div></div>
+  <div id="ad-reward" class="ad-layer" role="dialog"><div class="ad-sheet ad-sheet-wide"><p class="ad-kicker">Rewarded ad</p><h2>Watch for a hint</h2><div id="ad-reward-card" class="ad-card"></div><button class="btn btn-gold" id="ad-reward-go" type="button">Claim hint</button><button class="btn btn-ghost" id="ad-reward-skip" type="button">Cancel</button></div></div>
+  <script src="js/worlds-daily.js"></script>
+  <script src="js/puzzles-1.js"></script>
+  <script src="js/puzzles-2.js"></script>
+  <script src="js/puzzles-3.js"></script>
+  <script src="js/puzzles-4.js"></script>
+  <script src="js/ads.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
