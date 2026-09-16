@@ -1,0 +1,18 @@
+{
+  "id": "./",
+  "name": "LOGIKON — logic puzzles",
+  "short_name": "LOGIKON",
+  "description": "Logic puzzles by ElEm Software. Deduction, patterns, knights and knaves.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b1020",
+  "theme_color": "#0b1020",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["games", "puzzle", "education"],
+  "icons": [
+    { "src": "icons/logo-mark.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
